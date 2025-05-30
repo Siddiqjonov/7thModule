@@ -35,7 +35,7 @@ public class ContactRepository : IContactRepository
 
     public IQueryable<Contact> SelectAllContacts()
     {
-        return MainContext.Contacts;
+        return MainContext.Contacts.Include(c => c.User);
     }
 
     public async Task<ICollection<Contact>> SelectAllUserContactsAsync(long userId)
