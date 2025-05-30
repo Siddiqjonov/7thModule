@@ -8,4 +8,8 @@
     <PublishAot>true</PublishAot>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ContactManager.Application\ContactManager.Application.csproj" />
+  </ItemGroup>
+
 </Project>
