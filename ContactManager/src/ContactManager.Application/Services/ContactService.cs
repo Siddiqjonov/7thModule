@@ -64,40 +64,40 @@ public class ContactService : IContactService
     {
         var contacts = await ContactRepository.SelectAllUserContactsAsync(userId);
 
-        var contactsDto = contacts.Select(contact => ConvertToContactGetDto(contact));
+        var contactsDto = contacts.Select(contact => MapService.ConvertToContactGetDto(contact));
         return contactsDto.ToList();
     }
 
-    private ContactDto ConvertToContactDto(Contact contact)
-    {
-        return new ContactDto()
-        {
-            ContactId = contact.ContactId,
-            FirstName = contact.FirstName,
-            LastName = contact.LastName,
-            Email = contact.Email,
-            PhoneNumber = contact.PhoneNumber,
-            Address = contact.Address,
-        };
-    }
-    private ContactDto ConvertToContactGetDto(Contact contact)
-    {
-        return new ContactDto()
-        {
-            ContactId = contact.ContactId,
-            FirstName = contact.FirstName,
-            LastName = contact.LastName,
-            FullName = contact.FullName,
-            Email = contact.Email,
-            PhoneNumber = contact.PhoneNumber,
-            Address = contact.Address,
-        };
-    }
+    //private ContactDto ConvertToContactDto(Contact contact)
+    //{
+    //    return new ContactDto()
+    //    {
+    //        ContactId = contact.ContactId,
+    //        FirstName = contact.FirstName,
+    //        LastName = contact.LastName,
+    //        Email = contact.Email,
+    //        PhoneNumber = contact.PhoneNumber,
+    //        Address = contact.Address,
+    //    };
+    //}
+    //private ContactDto ConvertToContactGetDto(Contact contact)
+    //{
+    //    return new ContactDto()
+    //    {
+    //        ContactId = contact.ContactId,
+    //        FirstName = contact.FirstName,
+    //        LastName = contact.LastName,
+    //        FullName = contact.FullName,
+    //        Email = contact.Email,
+    //        PhoneNumber = contact.PhoneNumber,
+    //        Address = contact.Address,
+    //    };
+    //}
 
     public async Task<ContactDto> GetContactByContacIdAsync(long contactId, long userId)
     {
         var contact = await ContactRepository.SelectContactByContactIdAsync(contactId);
-        var contactDto = ConvertToContactDto(contact);
+        var contactDto = MapService.ConvertToContactDto(contact);
         if (contact.User.UserId == userId)
             return contactDto;
         else

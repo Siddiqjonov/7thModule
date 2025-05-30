@@ -15,11 +15,12 @@ public class AuthService : IAuthService
     private readonly IRefreshTokenRepository RefreshTokenRepository;
     private readonly IUserRoleRepository UserRoleRepository;
 
-    public AuthService(IUserRepositroy userRepositroy, ITokenService tokenService, IRefreshTokenRepository refreshTokenRepository)
+    public AuthService(IUserRepositroy userRepositroy, ITokenService tokenService, IRefreshTokenRepository refreshTokenRepository, IUserRoleRepository userRoleRepository)
     {
         UserRepositroy = userRepositroy;
         TokenService = tokenService;
         RefreshTokenRepository = refreshTokenRepository;
+        UserRoleRepository = userRoleRepository;
     }
 
     public async Task<LogInResponseDto> LoginUserAsync(UserLogInDto userLogInDto)

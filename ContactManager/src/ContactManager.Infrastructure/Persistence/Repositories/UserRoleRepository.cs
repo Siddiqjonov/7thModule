@@ -1,4 +1,5 @@
-﻿using ContactManager.Application.Interfaces;
+﻿using ContactManager.Application.Dtos;
+using ContactManager.Application.Interfaces;
 using ContactManager.Domain.Entities;
 using ContactManager.Domain.Errors;
 using Microsoft.EntityFrameworkCore;
@@ -37,5 +38,22 @@ public class UserRoleRepository : IUserRoleRepository
     {
         var userRole = await MainContext.UserRoles.FirstOrDefaultAsync(uR => uR.UserRoleName == userRoleName);
         return userRole == null ? throw new EntityNotFoundException($"Role with role name: {userRoleName} not found") : userRole;
+    }
+
+    public async Task<UserRole> SelectUserRoleByIdAsync(long userRoleId)
+    {
+        var userRole = await MainContext.UserRoles.FirstOrDefaultAsync(ur => ur.UserRoleId == userRoleId);
+        return userRole ?? throw new NotFoundException($"User role with: {userRoleId} not found");
+    }
+    public async Task DeleteUserRoleAsync(UserRole userRole)
+    {
+        MainContext.UserRoles.Remove(userRole);
+        await MainContext.SaveChangesAsync();
+    }
+
+    public async Task UpdateUserRoleAsync(UserRole userRole)
+    {
+        MainContext.UserRoles.Update(userRole);
+        await MainContext.SaveChangesAsync();
     }
 }
