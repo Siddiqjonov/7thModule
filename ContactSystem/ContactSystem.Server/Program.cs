@@ -1,7 +1,9 @@
 using ContactSystem.Aplication.Interfaces;
 using ContactSystem.Aplication.Services;
 using ContactSystem.Infrastructure.Persistence.Repositories;
+using ContactSystem.Server.ActionHelpers;
 using ContactSystem.Server.Configurations;
+using ContactSystem.Server.Endpoints;
 
 namespace ContactSystem.Server
 {
@@ -12,7 +14,8 @@ namespace ContactSystem.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddProblemDetails();
+            builder.Services.AddExceptionHandler<AppExceptionHendler>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -24,7 +27,7 @@ namespace ContactSystem.Server
 
 
             var app = builder.Build();
-            
+            app.UseExceptionHandler();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -39,7 +42,7 @@ namespace ContactSystem.Server
 
 
             app.MapControllers();
-
+            app.MapContactEndpoints();
             app.Run();
         }
     }

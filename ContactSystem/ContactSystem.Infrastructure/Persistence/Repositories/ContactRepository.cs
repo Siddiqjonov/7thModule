@@ -1,5 +1,6 @@
 ﻿using ContactSystem.Aplication.Interfaces;
 using ContactSystem.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactSystem.Infrastructure.Persistence.Repositories;
 
@@ -12,9 +13,10 @@ public class ContactRepository : IContactRepository
         _appDbContext = appDbContext;
     }
 
-    public Task DeleteAsync(long contactId)
+    public async Task DeleteAsync(Contact contact)
     {
-        throw new NotImplementedException();
+        _appDbContext.Contacts.Remove(contact);
+        await _appDbContext.SaveChangesAsync();
     }
 
     public async Task<long> InsertAsync(Contact contact)
@@ -24,18 +26,25 @@ public class ContactRepository : IContactRepository
         return contact.ContactId;
     }
 
+    public async Task<int> SaveChangesAsync()
+    {
+        return await _appDbContext.SaveChangesAsync();
+    }
+
     public IQueryable<Contact> SelectAll()
     {
         return _appDbContext.Contacts.AsQueryable();
     }
 
-    public Task<Contact> SelectByIdAsync(long contactId)
+    public async Task<Contact?> SelectByIdAsync(long contactId)
     {
-        throw new NotImplementedException();
+        var contact = await _appDbContext.Contacts.FirstOrDefaultAsync(c => c.ContactId == contactId);
+        return contact;
     }
 
-    public Task UpdateAsync(Contact contact)
+    public async Task UpdateAsync(Contact contact)
     {
-        throw new NotImplementedException();
+        _appDbContext.Contacts.Update(contact);
+        await _appDbContext.SaveChangesAsync();
     }
 }
