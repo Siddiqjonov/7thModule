@@ -1,11 +1,6 @@
-@ContactManager.Api_HostAddress = http://localhost:5067
+@ContactManager.Api_HostAddress = http://localhost:5079
 
-GET {{ContactManager.Api_HostAddress}}/todos/
-Accept: application/json
-
-###
-
-GET {{ContactManager.Api_HostAddress}}/todos/1
+GET {{ContactManager.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

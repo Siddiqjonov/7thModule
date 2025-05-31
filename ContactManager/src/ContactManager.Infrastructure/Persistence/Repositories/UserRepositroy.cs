@@ -40,10 +40,10 @@ public class UserRepositroy : IUserRepositroy
         return user ?? throw new EntityNotFoundException($"User with {userName} not found");
     }
 
-    public async Task UpdateUserRoleAsync(long userId, string UserRoleName)
+    public async Task UpdateUserRoleAsync(long userId, long userRoleId)
     {
         var user = await SelectUserByIdAsync(userId);
-        user.UserRole.UserRoleName = UserRoleName;
+        user.UserRoleId = userRoleId;
         MainContext.Users.Update(user);
         await MainContext.SaveChangesAsync();
     }

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Api", "src\ContactManager.Api\ContactManager.Api.csproj", "{82296A0C-DCF3-4558-BF38-CC812A58F8F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Domain", "src\ContactManager.Domain\ContactManager.Domain.csproj", "{CF422AC7-1E08-45B3-A9D9-C018D9C61F6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Domain", "src\ContactManager.Domain\ContactManager.Domain.csproj", "{CF422AC7-1E08-45B3-A9D9-C018D9C61F6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Infrastructure", "src\ContactManager.Infrastructure\ContactManager.Infrastructure.csproj", "{75A18C10-DCB7-4A78-B1F4-3B8FE90AC196}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Infrastructure", "src\ContactManager.Infrastructure\ContactManager.Infrastructure.csproj", "{75A18C10-DCB7-4A78-B1F4-3B8FE90AC196}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Application", "src\ContactManager.Application\ContactManager.Application.csproj", "{3E672053-FCD3-4ADA-8CB6-8C00B69B06BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Application", "src\ContactManager.Application\ContactManager.Application.csproj", "{3E672053-FCD3-4ADA-8CB6-8C00B69B06BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Api", "src\ContactManager.Api\ContactManager.Api.csproj", "{EF63ECF5-56CC-40D8-B432-7AC2DD203714}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82296A0C-DCF3-4558-BF38-CC812A58F8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82296A0C-DCF3-4558-BF38-CC812A58F8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82296A0C-DCF3-4558-BF38-CC812A58F8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82296A0C-DCF3-4558-BF38-CC812A58F8F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF422AC7-1E08-45B3-A9D9-C018D9C61F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF422AC7-1E08-45B3-A9D9-C018D9C61F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF422AC7-1E08-45B3-A9D9-C018D9C61F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{3E672053-FCD3-4ADA-8CB6-8C00B69B06BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E672053-FCD3-4ADA-8CB6-8C00B69B06BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E672053-FCD3-4ADA-8CB6-8C00B69B06BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF63ECF5-56CC-40D8-B432-7AC2DD203714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF63ECF5-56CC-40D8-B432-7AC2DD203714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF63ECF5-56CC-40D8-B432-7AC2DD203714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF63ECF5-56CC-40D8-B432-7AC2DD203714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
